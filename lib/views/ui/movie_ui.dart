@@ -21,7 +21,10 @@ class MovieUI extends StatelessWidget {
                 children: [
                   MovieTitle(detailName: _.detailName),
                   _.detailChapterTitleList.length > 0
-                      ? Flexible(child: Player())
+                      ? Flexible(
+                          child: Player(),
+                          fit: FlexFit.tight,
+                        )
                       : MovieImage(detailImage: _.detailImage),
                   SIZED_BOX_H10,
                   Center(
