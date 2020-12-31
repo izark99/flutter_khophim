@@ -21,21 +21,25 @@ class _PlayerState extends State<Player> {
     return GetBuilder<DataController>(
       init: DataController(),
       builder: (_) {
-        return FlickVideoPlayer(
-          preferredDeviceOrientation: [
-            DeviceOrientation.portraitUp,
-          ],
-          preferredDeviceOrientationFullscreen: [
-            DeviceOrientation.landscapeLeft
-          ],
-          flickManager: _.flickManager,
-          flickVideoWithControls: FlickVideoWithControls(
-            videoFit: BoxFit.fitWidth,
-            controls: FlickPortraitControls(),
-          ),
-          flickVideoWithControlsFullscreen: FlickVideoWithControls(
-            videoFit: BoxFit.fitHeight,
-            controls: FlickLandscapeControls(),
+        return Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.width * 9 / 16,
+          child: FlickVideoPlayer(
+            preferredDeviceOrientation: [
+              DeviceOrientation.portraitUp,
+            ],
+            preferredDeviceOrientationFullscreen: [
+              DeviceOrientation.landscapeLeft
+            ],
+            flickManager: _.flickManager,
+            flickVideoWithControls: FlickVideoWithControls(
+              videoFit: BoxFit.fitWidth,
+              controls: FlickPortraitControls(),
+            ),
+            flickVideoWithControlsFullscreen: FlickVideoWithControls(
+              videoFit: BoxFit.contain,
+              controls: FlickLandscapeControls(),
+            ),
           ),
         );
       },

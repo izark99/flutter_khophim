@@ -17,56 +17,43 @@ class MovieUI extends StatelessWidget {
           init: DataController(),
           builder: (_) {
             if (_.detailName.length > 0) {
-              return OrientationBuilder(
-                builder: (BuildContext context, Orientation orientation) {
-                  return Container(
-                    height: orientation == Orientation.portrait
-                        ? MediaQuery.of(context).size.height
-                        : MediaQuery.of(context).size.width,
-                    width: orientation == Orientation.portrait
-                        ? MediaQuery.of(context).size.width
-                        : MediaQuery.of(context).size.height,
-                    child: Column(
-                      children: [
-                        MovieTitle(detailName: _.detailName),
-                        _.detailChapterTitleList.length > 0
-                            ? Player()
-                            : MovieImage(detailImage: _.detailImage),
-                        SIZED_BOX_H10,
-                        Center(
-                          child: Text(
-                            _.detailChapterTitleList.length > 0
-                                ? STR_LIST_CHAPTER
-                                : STR_LIST_CHAPTER_EMPTY,
-                            style: Theme.of(context).textTheme.headline4,
-                          ),
-                        ),
-                        Visibility(
-                          visible: _.detailChapterTitleList.length > 0,
-                          child: Expanded(
-                            child: MovieChapterList(
-                              detailChapterLinkList: _.detailChapterLinkList,
-                              detailChapterTitleList: _.detailChapterTitleList,
-                            ),
-                          ),
-                        ),
-                        Center(
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              STR_SHOW_TIME +
-                                  _.detailShowtime.trim().toUpperCase(),
-                              textAlign: TextAlign.center,
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                              style: Theme.of(context).textTheme.bodyText2,
-                            ),
-                          ),
-                        ),
-                      ],
+              return Column(
+                children: [
+                  MovieTitle(detailName: _.detailName),
+                  _.detailChapterTitleList.length > 0
+                      ? Flexible(child: Player())
+                      : MovieImage(detailImage: _.detailImage),
+                  SIZED_BOX_H10,
+                  Center(
+                    child: Text(
+                      _.detailChapterTitleList.length > 0
+                          ? STR_LIST_CHAPTER
+                          : STR_LIST_CHAPTER_EMPTY,
+                      style: Theme.of(context).textTheme.headline4,
                     ),
-                  );
-                },
+                  ),
+                  Visibility(
+                    visible: _.detailChapterTitleList.length > 0,
+                    child: Expanded(
+                      child: MovieChapterList(
+                        detailChapterLinkList: _.detailChapterLinkList,
+                        detailChapterTitleList: _.detailChapterTitleList,
+                      ),
+                    ),
+                  ),
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        STR_SHOW_TIME + _.detailShowtime.trim().toUpperCase(),
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.bodyText2,
+                      ),
+                    ),
+                  ),
+                ],
               );
             } else {
               return Loading();
