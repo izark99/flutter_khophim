@@ -1,4 +1,5 @@
 import 'package:khophim/controllers/data_controller.dart';
+import 'package:khophim/helpers/ad_manager.dart';
 import 'package:khophim/helpers/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,6 +25,7 @@ class MovieItem extends StatelessWidget {
         DataController dataController = Get.find<DataController>();
         dataController.clearMovieInfo();
         dataController.loadDetail(link);
+        AdManager().showIntertitialAd();
         Get.toNamed("/MOVIE");
       },
       child: Container(

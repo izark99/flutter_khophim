@@ -36,7 +36,7 @@ class MovieChapterList extends StatelessWidget {
                   child: Text(
                     detailChapterTitleList[index]
                         .toString()
-                        .replaceAll("Thuyết Minh", " TM"),
+                        .replaceAll("Thuyết Minh", "TM"),
                     textAlign: TextAlign.center,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
