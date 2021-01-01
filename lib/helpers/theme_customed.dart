@@ -26,7 +26,7 @@ final lightTheme = ThemeData(
     ),
     headline4: TextStyle(
       color: Colors.black87,
-      fontSize: 24,
+      fontSize: 20,
       fontFamily: 'Bold',
       fontWeight: FontWeight.w500,
     ),
