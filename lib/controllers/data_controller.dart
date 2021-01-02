@@ -1,9 +1,9 @@
-import 'package:flick_video_player/flick_video_player.dart';
+import 'package:cached_flick_video_player/flick_video_player.dart';
+import 'package:cached_video_player/cached_video_player.dart';
 import 'package:khophim/helpers/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:video_player/video_player.dart';
 import 'package:web_scraper/web_scraper.dart';
 
 class DataController extends GetxController {
@@ -482,7 +482,7 @@ class DataController extends GetxController {
       codeChapter =
           detailChapterLinkList[index].split("_")[1].split(".html")[0];
       flickManager = FlickManager(
-        videoPlayerController: VideoPlayerController.network(
+        videoPlayerController: CachedVideoPlayerController.network(
             "https://asia00.fbcdn.space/rawhls/$codeMovie/$codeChapter-b2.m3u8?v="),
       );
       update();
@@ -493,7 +493,7 @@ class DataController extends GetxController {
     this.index = index;
     codeChapter = detailChapterLinkList[index].split("_")[1].split(".html")[0];
     flickManager.handleChangeVideo(
-      VideoPlayerController.network(
+      CachedVideoPlayerController.network(
           "https://asia00.fbcdn.space/rawhls/$codeMovie/$codeChapter-b2.m3u8?v="),
     );
     update();

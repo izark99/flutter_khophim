@@ -36,6 +36,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0-nullsafety.3"
+  cached_flick_video_player:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: "557f74e4c2c711d4f6411aa49c638215a4b1bd3c"
+      url: "https://github.com/Bader-Al/flick-video-player.git"
+    source: git
+    version: "0.1.1"
   cached_network_image:
     dependency: "direct main"
     description:
@@ -43,6 +52,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.5.0"
+  cached_video_player:
+    dependency: "direct main"
+    description:
+      name: cached_video_player
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.3"
   characters:
     dependency: transitive
     description:
@@ -120,13 +136,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.2.1"
-  flick_video_player:
-    dependency: "direct main"
-    description:
-      name: flick_video_player
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -489,7 +498,7 @@ packages:
       name: video_player
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.10.12+5"
+    version: "1.0.1"
   video_player_platform_interface:
     dependency: transitive
     description:
